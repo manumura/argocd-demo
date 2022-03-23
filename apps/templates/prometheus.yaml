@@ -11,7 +11,7 @@ spec:
     namespace: default
   project: default
   source:
-    chart: kube-prometheus
+    chart: prometheus
     helm:
       values: |
         pushgateway:
