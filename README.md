@@ -10,6 +10,8 @@
 
 ``` echo "Username: admin" ``` AND ``` echo "Password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)" ```
 
+``` helm template apps/ | kubectl apply -f - ```
+
 ``` helm delete -n argocd argo-cd-release ``` 
 
 ## Set bcrypt password to "password"
