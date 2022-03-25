@@ -1,4 +1,4 @@
-server:
+argo-cd:
   config:
     repositories: |
       - type: helm
