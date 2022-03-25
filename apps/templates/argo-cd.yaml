@@ -11,7 +11,7 @@ spec:
     namespace: argocd
   project: default
   source:
-    path: install/
+    path: charts/argo-cd
     repoURL: https://github.com/manumura/argocd-demo.git
     targetRevision: HEAD
   syncPolicy:
