@@ -10,9 +10,9 @@
 
 ``` echo "Username: admin" ``` AND ``` echo "Password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)" ```
 
-``` helm template apps/ | kubectl apply -f - ``` OR ``` kubectl apply -f apps/templates/argocd/root.yaml ```
+``` kubectl apply -f root/root.yaml ```
 
-``` kubectl apply -f appprojects/templates/appbundle.yaml ```
+``` kubectl apply -f appprojects/namespaces/default/appbundle.yaml ```
 
 ``` argocd app sync root ```
 
