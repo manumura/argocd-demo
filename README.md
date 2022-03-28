@@ -14,6 +14,8 @@
 
 ``` kubectl apply -f appprojects/namespaces/default/appbundle.yaml ```
 
+``` argocd login $ARGOCD_SERVER --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD ```
+
 ``` argocd app sync root ```
 
 ``` helm delete -n argocd argo-cd-release ``` 
