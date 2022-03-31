@@ -16,8 +16,8 @@ spec:
       values: |
         pushgateway:
           enabled: false
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 7.6.23
+    repoURL: https://grafana.github.io/helm-charts
+    targetRevision: 6.24.1
   syncPolicy:
     automated:
       prune: true
