@@ -10,13 +10,15 @@
 
 ``` echo "Username: admin" ``` AND ``` echo "Password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)" ```
 
-``` kubectl apply -f root/root.yaml ```
+``` kubectl apply -f root/root-app.yaml ```
 
-``` kubectl apply -f appprojects/namespaces/default/appbundle.yaml ```
+``` kubectl apply -f root/root-appproject.yaml ```
 
 ``` argocd login $ARGOCD_SERVER --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD ```
 
-``` argocd app sync root ```
+``` argocd app sync root-app ```
+
+``` kubectl delete -f root/root-app.yaml ```
 
 ``` helm delete -n argocd argo-cd-release ``` 
 
