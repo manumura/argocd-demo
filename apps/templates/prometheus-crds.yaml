@@ -11,16 +11,11 @@ spec:
     namespace: monitoring
   project: default
   source:
-    repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/crds/
+    repoURL: https://github.com/prometheus-community/helm-charts.git
     targetRevision: kube-prometheus-stack-34.6.0
     directory:
       recurse: true
+  syncPolicy:
     syncOptions:
       - Replace=true
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
