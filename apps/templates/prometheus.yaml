@@ -20,9 +20,8 @@ spec:
     helm:
       values: |
         fullnameOverride: prometheus
-        prometheus:
-          prometheus-node-exporter:
-            hostRootFsMount: false
+        prometheus-node-exporter:
+          hostRootFsMount: false
   syncPolicy:
     automated:
       prune: true
