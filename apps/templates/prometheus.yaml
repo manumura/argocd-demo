@@ -1,6 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 # https://medium.com/devopsturkiye/deploy-kube-prometheus-stack-the-correct-way-using-argocd-444d846cd643
+  # valueFiles:
+# - value-prometheus.yaml
 metadata:
   name: prometheus
   namespace: argocd
@@ -18,8 +20,9 @@ spec:
     helm:
       values: |
         fullnameOverride: prometheus
-      valueFiles:
-        - value-prometheus.yaml
+        prometheus:
+          prometheus-node-exporter:
+            hostRootFsMount: false
   syncPolicy:
     automated:
       prune: true
