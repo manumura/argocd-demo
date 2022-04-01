@@ -1,5 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+# https://medium.com/devopsturkiye/deploy-kube-prometheus-stack-the-correct-way-using-argocd-444d846cd643
 metadata:
   name: prometheus
   namespace: argocd
@@ -8,17 +9,31 @@ metadata:
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: monitoring
   project: default
   source:
-    chart: prometheus
-    helm:
-      values: |
-        pushgateway:
-          enabled: false
+    chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 15.8.0
+    targetRevision: 34.6.0
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  helm:
+    values: |
+      fullnameOverride: prometheus
+      prometheus:
+        prometheusSpec:
+          storageSpec:
+            volumeClaimTemplate:
+              spec:
+                resources:
+                  requests:
+                    storage: 5Gi
+      grafana:
+        persistence:
+          type: statefulset
+          enabled: true
+          size: 5Gi
