@@ -11,12 +11,6 @@ spec:
     server: https://kubernetes.default.svc
     namespace: monitoring
   project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
@@ -24,3 +18,9 @@ spec:
     helm:
       values: |
         fullnameOverride: prometheus
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
