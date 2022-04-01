@@ -24,16 +24,3 @@ spec:
     helm:
       values: |
         fullnameOverride: prometheus
-        prometheus:
-          prometheusSpec:
-            storageSpec:
-              volumeClaimTemplate:
-                spec:
-                  resources:
-                    requests:
-                      storage: 5Gi
-        grafana:
-          persistence:
-            type: statefulset
-            enabled: true
-            size: 5Gi
