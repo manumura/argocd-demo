@@ -21,8 +21,9 @@ spec:
       skipCrds: true
       values: |
         fullnameOverride: prometheus
-        prometheus-node-exporter:
-          hostRootFsMount: false
+{{/*        kube-prometheus-stack:*/}}
+{{/*          prometheus-node-exporter:*/}}
+{{/*            hostRootFsMount: false*/}}
   syncPolicy:
     automated:
       prune: true
