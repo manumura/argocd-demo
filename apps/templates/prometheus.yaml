@@ -18,6 +18,8 @@ spec:
     helm:
       values: |
         fullnameOverride: prometheus
+      valueFiles:
+        - value-prometheus.yaml
   syncPolicy:
     automated:
       prune: true
