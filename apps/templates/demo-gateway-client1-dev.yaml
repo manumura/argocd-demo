@@ -17,7 +17,7 @@ spec:
       helm:
         releaseName: demo-gateway-client1-release
         valueFiles:
-          - ../environments/values.dev.yaml
+          - ./environments/values.dev.yaml
   syncPolicy:
     automated:
       prune: true
