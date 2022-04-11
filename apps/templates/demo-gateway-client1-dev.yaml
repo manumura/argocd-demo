@@ -1,5 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+# https://dev.localhost/demo-gateway-client1/config/topics
 metadata:
   name: demo-gateway-client1
   namespace: argocd

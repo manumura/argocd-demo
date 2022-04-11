@@ -9,7 +9,7 @@
 
 ``` kubectl get pods -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2 ```
 
-``` kubectl port-forward -n argocd svc/argo-cd-release-argocd-server 8080:80 ```
+``` kubectl port-forward -n argocd svc/argo-cd-release-argocd-server 8000:80 ```
 
 ``` echo "Username: admin" ``` AND ``` echo "Password: $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)" ```
 
