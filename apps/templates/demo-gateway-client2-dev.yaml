@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-# https://dev.local.me/demo-gateway-client1/config/topics
+# https://dev.local.me/demo-gateway-client2/config/topics
 metadata:
-  name: demo-gateway-client1
+  name: demo-gateway-client2
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -12,11 +12,11 @@ spec:
     namespace: dev
   project: default
   source:
-    path: demo-gateway-client1-chart
+    path: demo-gateway-client2-chart
     repoURL: https://github.com/manumura/demo-spring-gateway-charts.git
     targetRevision: master
     helm:
-      releaseName: demo-gateway-client1-release
+      releaseName: demo-gateway-client2-release
       valueFiles:
         - environments/values.dev.yaml
   syncPolicy:

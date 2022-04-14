@@ -3,7 +3,7 @@
 ## https://medium.com/devopsturkiye/self-managed-argo-cd-app-of-everything-a226eb100cf0
 ## https://medium.com/dzerolabs/turbocharge-argocd-with-app-of-apps-pattern-and-kustomized-helm-ea4993190e7c
 
-``` helm repo add argo-cd https://argoproj.github.io/argo-helm ``` AND ```helm dep update charts/argo-cd/ ```
+``` helm repo add argo-cd https://argoproj.github.io/argo-helm ``` AND ``` helm dep update charts/argo-cd/ ```
 
 ``` helm install --namespace=argocd --create-namespace -f charts/argo-cd/values.yaml argo-cd-release charts/argo-cd/ ```
 
