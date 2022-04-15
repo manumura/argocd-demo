@@ -3,13 +3,15 @@ kind: Application
 # https://medium.com/devopsturkiye/deploy-kube-prometheus-stack-the-correct-way-using-argocd-444d846cd643
 # https://www.frakkingsweet.com/argocd-and-kube-prometheus-stack/
 # kubectl create -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
+# https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/
+# https://github.com/argoproj/argo-cd/issues/3454
 metadata:
   name: prometheus
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   destination:
     server: https://kubernetes.default.svc
