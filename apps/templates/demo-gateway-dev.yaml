@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+# https://dev.local.me/demo-gateway/config/topics
+metadata:
+  name: demo-gateway
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  project: default
+  source:
+    path: demo-gateway-chart
+    repoURL: https://github.com/manumura/demo-spring-gateway-charts.git
+    targetRevision: master
+    helm:
+      releaseName: demo-gateway-release
+      valueFiles:
+        - environments/values.dev.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
