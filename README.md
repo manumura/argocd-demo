@@ -26,7 +26,9 @@
 ``` helm delete -n argocd argo-cd-release ``` 
 
 ## Set bcrypt password to "password"
-``` kubectl -n argocd patch secret argocd-secret   -p '{"stringData": {
+``` 
+kubectl -n argocd patch secret argocd-secret   -p '{"stringData": {
 "admin.password": "$2a$10$rRyBsGSHK6.uc8fntPwVIuLVHgsAhAX7TcdrqW/RADU0uh7CaChLa",
 "admin.passwordMtime": "'$(date +%FT%T%Z)'"
-}}' ```
+}}' 
+```
